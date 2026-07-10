@@ -54,7 +54,7 @@
     "type": "git",
     "url": "git+https://github.com/eduair94/checkleaked-spotify-api.git"
   },
-  "homepage": "https://github.com/eduair94/checkleaked-spotify-api#readme",
+  "homepage": "https://spotify.checkleaked.cc",
   "bugs": {
     "url": "https://github.com/eduair94/checkleaked-spotify-api/issues"
   },

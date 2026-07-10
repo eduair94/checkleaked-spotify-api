@@ -1,5 +1,7 @@
 # @checkleaked/spotify-api
 
+**Website:** [spotify.checkleaked.cc](https://spotify.checkleaked.cc) · **npm:** [@checkleaked/spotify-api](https://www.npmjs.com/package/@checkleaked/spotify-api)
+
 Zero-dependency, fully-typed TypeScript SDK for the **Spotify Data API** — 110 typed methods across 25 namespaces covering search, artists, tracks, albums, lyrics, playlists, charts, browse, podcasts, concerts, tracking, webhooks and AI analysis.
 
 - 🟢 **Zero runtime dependencies** — built on native `fetch`.
