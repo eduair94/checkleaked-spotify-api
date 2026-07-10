@@ -1,0 +1,2796 @@
+{
+  "version": "1.1.0",
+  "totalOps": 123,
+  "tags": [
+    {
+      "tag": "AI",
+      "namespace": "ai",
+      "className": "AiResource",
+      "filename": "ai",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/ai/health",
+          "key": "get_ai_health",
+          "typeName": "GetAiHealthData",
+          "summary": "AI module health",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/types",
+          "key": "get_ai_types",
+          "typeName": "GetAiTypesData",
+          "summary": "Supported AI analysis types",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/analyze",
+          "key": "get_ai_analyze",
+          "typeName": "GetAiAnalyzeData",
+          "summary": "Generic AI analysis",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/analyze",
+          "key": "post_ai_analyze",
+          "typeName": "PostAiAnalyzeData",
+          "summary": "Generic AI analysis",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/chart-trends",
+          "key": "get_ai_chart_trends",
+          "typeName": "GetAiChartTrendsData",
+          "summary": "Chart trends analysis",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/chart-trends",
+          "key": "post_ai_chart_trends",
+          "typeName": "PostAiChartTrendsData",
+          "summary": "Chart trends analysis",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/artist-summary",
+          "key": "get_ai_artist_summary",
+          "typeName": "GetAiArtistSummaryData",
+          "summary": "Artist summary",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/artist-summary",
+          "key": "post_ai_artist_summary",
+          "typeName": "PostAiArtistSummaryData",
+          "summary": "Artist summary",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/album-review",
+          "key": "get_ai_album_review",
+          "typeName": "GetAiAlbumReviewData",
+          "summary": "Album review",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/album-review",
+          "key": "post_ai_album_review",
+          "typeName": "PostAiAlbumReviewData",
+          "summary": "Album review",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/track-deep-dive",
+          "key": "get_ai_track_deep_dive",
+          "typeName": "GetAiTrackDeepDiveData",
+          "summary": "Track deep dive",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/track-deep-dive",
+          "key": "post_ai_track_deep_dive",
+          "typeName": "PostAiTrackDeepDiveData",
+          "summary": "Track deep dive",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/playlist-curator",
+          "key": "get_ai_playlist_curator",
+          "typeName": "GetAiPlaylistCuratorData",
+          "summary": "Playlist curator",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/playlist-curator",
+          "key": "post_ai_playlist_curator",
+          "typeName": "PostAiPlaylistCuratorData",
+          "summary": "Playlist curator",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/market-comparison",
+          "key": "get_ai_market_comparison",
+          "typeName": "GetAiMarketComparisonData",
+          "summary": "Market comparison",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/market-comparison",
+          "key": "post_ai_market_comparison",
+          "typeName": "PostAiMarketComparisonData",
+          "summary": "Market comparison",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/genre-landscape",
+          "key": "get_ai_genre_landscape",
+          "typeName": "GetAiGenreLandscapeData",
+          "summary": "Genre landscape",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/genre-landscape",
+          "key": "post_ai_genre_landscape",
+          "typeName": "PostAiGenreLandscapeData",
+          "summary": "Genre landscape",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/mood-profile",
+          "key": "get_ai_mood_profile",
+          "typeName": "GetAiMoodProfileData",
+          "summary": "Mood profile",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/mood-profile",
+          "key": "post_ai_mood_profile",
+          "typeName": "PostAiMoodProfileData",
+          "summary": "Mood profile",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/viral-potential",
+          "key": "get_ai_viral_potential",
+          "typeName": "GetAiViralPotentialData",
+          "summary": "Viral potential",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/viral-potential",
+          "key": "post_ai_viral_potential",
+          "typeName": "PostAiViralPotentialData",
+          "summary": "Viral potential",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/ai/custom",
+          "key": "get_ai_custom",
+          "typeName": "GetAiCustomData",
+          "summary": "Custom AI prompt",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/ai/custom",
+          "key": "post_ai_custom",
+          "typeName": "PostAiCustomData",
+          "summary": "Custom AI prompt",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Albums",
+      "namespace": "albums",
+      "className": "AlbumsResource",
+      "filename": "albums",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/albums",
+          "key": "get_albums",
+          "typeName": "GetAlbumsData",
+          "summary": "Get albums",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated album IDs"
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/album_tracks",
+          "key": "get_album_tracks",
+          "typeName": "GetAlbumTracksData",
+          "summary": "Album tracks",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/album_metadata",
+          "key": "get_album_metadata",
+          "typeName": "GetAlbumMetadataData",
+          "summary": "Album metadata",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Analysis",
+      "namespace": "analysis",
+      "className": "AnalysisResource",
+      "filename": "analysis",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/artist_compare",
+          "key": "get_artist_compare",
+          "typeName": "GetArtistCompareData",
+          "summary": "Compare artists",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated artist IDs (2–10)."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/audio_features",
+          "key": "get_audio_features",
+          "typeName": "GetAudioFeaturesData",
+          "summary": "Audio features",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/playlist_analysis",
+          "key": "get_playlist_analysis",
+          "typeName": "GetPlaylistAnalysisData",
+          "summary": "Playlist analysis",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Artists",
+      "namespace": "artists",
+      "className": "ArtistsResource",
+      "filename": "artists",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/artists",
+          "key": "get_artists",
+          "typeName": "GetArtistsData",
+          "summary": "Get artists",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated artist IDs"
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_overview",
+          "key": "get_artist_overview",
+          "typeName": "GetArtistOverviewData",
+          "summary": "Artist overview",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_discography_overview",
+          "key": "get_artist_discography_overview",
+          "typeName": "GetArtistDiscographyOverviewData",
+          "summary": "Artist discography overview",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_albums",
+          "key": "get_artist_albums",
+          "typeName": "GetArtistAlbumsData",
+          "summary": "Artist albums",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 300
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_singles",
+          "key": "get_artist_singles",
+          "typeName": "GetArtistSinglesData",
+          "summary": "Artist singles",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 100
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_appears_on",
+          "key": "get_artist_appears_on",
+          "typeName": "GetArtistAppearsOnData",
+          "summary": "Artist appears on",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_discovered_on",
+          "key": "get_artist_discovered_on",
+          "typeName": "GetArtistDiscoveredOnData",
+          "summary": "Artist discovered on",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_featuring",
+          "key": "get_artist_featuring",
+          "typeName": "GetArtistFeaturingData",
+          "summary": "Artist featuring",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_related",
+          "key": "get_artist_related",
+          "typeName": "GetArtistRelatedData",
+          "summary": "Related artists",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_top_tracks",
+          "key": "get_artist_top_tracks",
+          "typeName": "GetArtistTopTracksData",
+          "summary": "Artist top tracks",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Audiobooks",
+      "namespace": "audiobooks",
+      "className": "AudiobooksResource",
+      "filename": "audiobooks",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/audiobooks",
+          "key": "get_audiobooks",
+          "typeName": "GetAudiobooksData",
+          "summary": "Get audiobooks",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/audiobooks/{id}",
+          "key": "get_audiobooks_id",
+          "typeName": "GetAudiobooksIdData",
+          "summary": "Audiobook by ID",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/audiobooks/{id}/chapters",
+          "key": "get_audiobooks_id_chapters",
+          "typeName": "GetAudiobooksIdChaptersData",
+          "summary": "Audiobook chapters",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Batch",
+      "namespace": "batch",
+      "className": "BatchResource",
+      "filename": "batch",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/album_metadata_batch",
+          "key": "get_album_metadata_batch",
+          "typeName": "GetAlbumMetadataBatchData",
+          "summary": "Album metadata (batch)",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated album IDs (max 25)."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_overview_batch",
+          "key": "get_artist_overview_batch",
+          "typeName": "GetArtistOverviewBatchData",
+          "summary": "Artist overview (batch)",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated artist IDs (max 25)."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/track_credits_batch",
+          "key": "get_track_credits_batch",
+          "typeName": "GetTrackCreditsBatchData",
+          "summary": "Track credits (batch)",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated track IDs (max 25)."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/track_lyrics_batch",
+          "key": "get_track_lyrics_batch",
+          "typeName": "GetTrackLyricsBatchData",
+          "summary": "Track lyrics (batch)",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "format",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "json",
+                "lrc",
+                "srt",
+                "raw"
+              ],
+              "default": "json"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/track_popularity_batch",
+          "key": "get_track_popularity_batch",
+          "typeName": "GetTrackPopularityBatchData",
+          "summary": "Track popularity (batch)",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Browse",
+      "namespace": "browse",
+      "className": "BrowseResource",
+      "filename": "browse",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/browse/categories",
+          "key": "get_browse_categories",
+          "typeName": "GetBrowseCategoriesData",
+          "summary": "Browse categories",
+          "params": [
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "locale",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/browse/categories/{id}",
+          "key": "get_browse_categories_id",
+          "typeName": "GetBrowseCategoriesIdData",
+          "summary": "Category by ID",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "locale",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/browse/featured-playlists",
+          "key": "get_browse_featured_playlists",
+          "typeName": "GetBrowseFeaturedPlaylistsData",
+          "summary": "Featured playlists",
+          "params": [
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "locale",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/browse/new-releases",
+          "key": "get_browse_new_releases",
+          "typeName": "GetBrowseNewReleasesData",
+          "summary": "New releases",
+          "params": [
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/browse/recommendations",
+          "key": "get_browse_recommendations",
+          "typeName": "GetBrowseRecommendationsData",
+          "summary": "Browse recommendations",
+          "params": [
+            {
+              "name": "seed_tracks",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "seed_artists",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "seed_genres",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Cache",
+      "namespace": "cache",
+      "className": "CacheResource",
+      "filename": "cache",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/cache/stats",
+          "key": "get_cache_stats",
+          "typeName": "GetCacheStatsData",
+          "summary": "Cache stats",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/cache/invalidate",
+          "key": "post_cache_invalidate",
+          "typeName": "PostCacheInvalidateData",
+          "summary": "Invalidate cache",
+          "params": [],
+          "body": [
+            {
+              "name": "key",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "pattern",
+              "type": "string",
+              "required": false
+            }
+          ],
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Charts",
+      "namespace": "charts",
+      "className": "ChartsResource",
+      "filename": "charts",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/top_20_by_monthly_listeners",
+          "key": "get_top_20_by_monthly_listeners",
+          "typeName": "GetTop20ByMonthlyListenersData",
+          "summary": "Top 20 by monthly listeners",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/top_200_tracks",
+          "key": "get_top_200_tracks",
+          "typeName": "GetTop200TracksData",
+          "summary": "Top 200 tracks",
+          "params": [
+            {
+              "name": "period",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "daily"
+            },
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "global"
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/top_artists",
+          "key": "get_top_artists",
+          "typeName": "GetTopArtistsData",
+          "summary": "Top artists chart",
+          "params": [
+            {
+              "name": "period",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "daily"
+            },
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "global"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/top_albums",
+          "key": "get_top_albums",
+          "typeName": "GetTopAlbumsData",
+          "summary": "Top albums chart",
+          "params": [
+            {
+              "name": "period",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "daily"
+            },
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "global"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/viral_tracks",
+          "key": "get_viral_tracks",
+          "typeName": "GetViralTracksData",
+          "summary": "Viral tracks chart",
+          "params": [
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "global"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/top_20_by_followers",
+          "key": "get_top_20_by_followers",
+          "typeName": "GetTop20ByFollowersData",
+          "summary": "Top 20 by followers",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Concerts",
+      "namespace": "concerts",
+      "className": "ConcertsResource",
+      "filename": "concerts",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/partner/concert-locations",
+          "key": "get_partner_concert_locations",
+          "typeName": "GetPartnerConcertLocationsData",
+          "summary": "Search concert locations",
+          "params": [
+            {
+              "name": "query",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "City, venue, or place name."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/concert-feed",
+          "key": "get_partner_concert_feed",
+          "typeName": "GetPartnerConcertFeedData",
+          "summary": "Concert feed by location",
+          "params": [
+            {
+              "name": "geoHash",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Spotify geohash (from `/partner/concert-locations`)."
+            },
+            {
+              "name": "geonameId",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Geoname ID (from `/partner/concert-locations`)."
+            },
+            {
+              "name": "from",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Start of date range (YYYY-MM-DD)."
+            },
+            {
+              "name": "to",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "End of date range (YYYY-MM-DD)."
+            },
+            {
+              "name": "radiusInKm",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 100
+            },
+            {
+              "name": "conceptUris",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated Spotify concept URIs (e.g. `spotify:concept:rock,spotify:concept:pop`)."
+            },
+            {
+              "name": "paginationKey",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Pass back the `paginationKey` from a prior response."
+            },
+            {
+              "name": "details",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Enrich each concert with full concert details in parallel."
+            },
+            {
+              "name": "detailsLimit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 20,
+              "description": "Max concerts to enrich per request (max 50)."
+            },
+            {
+              "name": "parsed",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Return a flat, normalized concert shape instead of raw GraphQL."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/concert",
+          "key": "get_partner_concert",
+          "typeName": "GetPartnerConcertData",
+          "summary": "Concert details",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Concert ID, `spotify:concert:URI`, or `open.spotify.com/concert/<id>` URL."
+            },
+            {
+              "name": "parsed",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Return a flat, normalized concert shape instead of raw GraphQL."
+            },
+            {
+              "name": "authenticated",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": true,
+              "description": "Set `false` to query as anonymous user (omits `me.profile` block)."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/artist-concerts",
+          "key": "get_partner_artist_concerts",
+          "typeName": "GetPartnerArtistConcertsData",
+          "summary": "Artist upcoming concerts",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Artist ID, URI, or open.spotify.com URL."
+            },
+            {
+              "name": "geoHash",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "0",
+              "description": "Geohash for nearby-concert prioritization. `0` = global."
+            },
+            {
+              "name": "includeNearby",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "name": "details",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Enrich each concert with full concert details in parallel."
+            },
+            {
+              "name": "detailsLimit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 20,
+              "description": "Max concerts to enrich per request (max 50)."
+            },
+            {
+              "name": "parsed",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Return a flat, normalized concert shape instead of raw GraphQL."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/search-concert-artists",
+          "key": "get_partner_search_concert_artists",
+          "typeName": "GetPartnerSearchConcertArtistsData",
+          "summary": "Search concerts by artist name",
+          "params": [
+            {
+              "name": "query",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Artist name to search."
+            },
+            {
+              "name": "geoHash",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "0"
+            },
+            {
+              "name": "includeNearby",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 1,
+              "description": "Number of artist matches to return concerts for."
+            },
+            {
+              "name": "details",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Enrich each concert with full concert details in parallel."
+            },
+            {
+              "name": "detailsLimit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 20,
+              "description": "Max concerts to enrich per request (max 50)."
+            },
+            {
+              "name": "parsed",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Return a flat, normalized concert shape instead of raw GraphQL."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Credentials",
+      "namespace": "credentials",
+      "className": "CredentialsResource",
+      "filename": "credentials",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/credentials/status",
+          "key": "get_credentials_status",
+          "typeName": "GetCredentialsStatusData",
+          "summary": "Credentials status",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/cookies/redis",
+          "key": "get_cookies_redis",
+          "typeName": "GetCookiesRedisData",
+          "summary": "Redis cookies status",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Downloads",
+      "namespace": "downloads",
+      "className": "DownloadsResource",
+      "filename": "downloads",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/download_track",
+          "key": "get_download_track",
+          "typeName": "GetDownloadTrackData",
+          "summary": "Download track",
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/download_track_sc",
+          "key": "get_download_track_sc",
+          "typeName": "GetDownloadTrackScData",
+          "summary": "Download track (SoundCloud)",
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Episodes",
+      "namespace": "episodes",
+      "className": "EpisodesResource",
+      "filename": "episodes",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/episodes",
+          "key": "get_episodes",
+          "typeName": "GetEpisodesData",
+          "summary": "Get episodes",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/episodes/{id}",
+          "key": "get_episodes_id",
+          "typeName": "GetEpisodesIdData",
+          "summary": "Episode by ID",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Health",
+      "namespace": "health",
+      "className": "HealthResource",
+      "filename": "health",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/ping",
+          "key": "get_ping",
+          "typeName": "GetPingData",
+          "summary": "Ping",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/health",
+          "key": "get_health",
+          "typeName": "GetHealthData",
+          "summary": "Cluster health",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/health/instance",
+          "key": "get_health_instance",
+          "typeName": "GetHealthInstanceData",
+          "summary": "Instance health",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/health/cluster",
+          "key": "get_health_cluster",
+          "typeName": "GetHealthClusterData",
+          "summary": "Cluster overview",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/health/cluster/strict",
+          "key": "get_health_cluster_strict",
+          "typeName": "GetHealthClusterStrictData",
+          "summary": "Strict cluster health",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/health/proxies",
+          "key": "get_health_proxies",
+          "typeName": "GetHealthProxiesData",
+          "summary": "Proxy health",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/health/proxies/clear",
+          "key": "post_health_proxies_clear",
+          "typeName": "PostHealthProxiesClearData",
+          "summary": "Clear proxy stats",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/health/clear-errors",
+          "key": "post_health_clear_errors",
+          "typeName": "PostHealthClearErrorsData",
+          "summary": "Clear error counters",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Lookups",
+      "namespace": "lookups",
+      "className": "LookupsResource",
+      "filename": "lookups",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/isrc_lookup",
+          "key": "get_isrc_lookup",
+          "typeName": "GetIsrcLookupData",
+          "summary": "Lookup track by ISRC",
+          "params": [
+            {
+              "name": "isrc",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/upc_lookup",
+          "key": "get_upc_lookup",
+          "typeName": "GetUpcLookupData",
+          "summary": "Lookup album by UPC",
+          "params": [
+            {
+              "name": "upc",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Markets",
+      "namespace": "markets",
+      "className": "MarketsResource",
+      "filename": "markets",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/markets",
+          "key": "get_markets",
+          "typeName": "GetMarketsData",
+          "summary": "Available markets",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Partner",
+      "namespace": "partner",
+      "className": "PartnerResource",
+      "filename": "partner",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/partner/playlist",
+          "key": "get_partner_playlist",
+          "typeName": "GetPartnerPlaylistData",
+          "summary": "Partner playlist data",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "22-character Spotify playlist ID"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 25
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/track",
+          "key": "get_partner_track",
+          "typeName": "GetPartnerTrackData",
+          "summary": "Partner track data",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/track/count",
+          "key": "get_partner_track_count",
+          "typeName": "GetPartnerTrackCountData",
+          "summary": "Track play count",
+          "params": [
+            {
+              "name": "spotify_track_id",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "isrc",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/album",
+          "key": "get_partner_album",
+          "typeName": "GetPartnerAlbumData",
+          "summary": "Partner album data",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "locale",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "intl-es"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 50
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/artist-overview",
+          "key": "get_partner_artist_overview",
+          "typeName": "GetPartnerArtistOverviewData",
+          "summary": "Partner artist overview",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "locale",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "en"
+            },
+            {
+              "name": "includePrerelease",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/artist-discography",
+          "key": "get_partner_artist_discography",
+          "typeName": "GetPartnerArtistDiscographyData",
+          "summary": "Partner artist discography",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 50
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Playlists",
+      "namespace": "playlists",
+      "className": "PlaylistsResource",
+      "filename": "playlists",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/playlist",
+          "key": "get_playlist",
+          "typeName": "GetPlaylistData",
+          "summary": "Get playlist",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/playlist_tracks",
+          "key": "get_playlist_tracks",
+          "typeName": "GetPlaylistTracksData",
+          "summary": "Playlist tracks",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 100
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/seed_to_playlist",
+          "key": "get_seed_to_playlist",
+          "typeName": "GetSeedToPlaylistData",
+          "summary": "Seed to playlist",
+          "params": [
+            {
+              "name": "uri",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Search",
+      "namespace": "search",
+      "className": "SearchResource",
+      "filename": "search",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/search",
+          "key": "get_search",
+          "typeName": "GetSearchData",
+          "summary": "Search Spotify",
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "multi",
+              "description": "Search type: multi, tracks, albums, artists, playlists, etc."
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            },
+            {
+              "name": "numberOfTopResults",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 5
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/search_top_results",
+          "key": "get_search_top_results",
+          "typeName": "GetSearchTopResultsData",
+          "summary": "Search — top results only",
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "numberOfTopResults",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 5
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/search_lyrics",
+          "key": "get_search_lyrics",
+          "typeName": "GetSearchLyricsData",
+          "summary": "Search & get lyrics",
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "format",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "json",
+                "lrc",
+                "srt",
+                "raw"
+              ],
+              "default": "json"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/search_suggestions",
+          "key": "get_search_suggestions",
+          "typeName": "GetSearchSuggestionsData",
+          "summary": "Search suggestions",
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 30
+            },
+            {
+              "name": "numberOfTopResults",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 30
+            },
+            {
+              "name": "includeAuthors",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "timeout",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 30000
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/search_multi_market",
+          "key": "get_search_multi_market",
+          "typeName": "GetSearchMultiMarketData",
+          "summary": "Multi-market search",
+          "params": [
+            {
+              "name": "q",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "multi"
+            },
+            {
+              "name": "markets",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated ISO market codes (e.g. `US,GB,DE`)."
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Shows",
+      "namespace": "shows",
+      "className": "ShowsResource",
+      "filename": "shows",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/shows",
+          "key": "get_shows",
+          "typeName": "GetShowsData",
+          "summary": "Get shows",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/shows/{id}",
+          "key": "get_shows_id",
+          "typeName": "GetShowsIdData",
+          "summary": "Show by ID",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/shows/{id}/episodes",
+          "key": "get_shows_id_episodes",
+          "typeName": "GetShowsIdEpisodesData",
+          "summary": "Show episodes",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Snapshots",
+      "namespace": "snapshots",
+      "className": "SnapshotsResource",
+      "filename": "snapshots",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/playlist_snapshot",
+          "key": "get_playlist_snapshot",
+          "typeName": "GetPlaylistSnapshotData",
+          "summary": "List playlist snapshots",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/playlist_snapshot",
+          "key": "post_playlist_snapshot",
+          "typeName": "PostPlaylistSnapshotData",
+          "summary": "Create playlist snapshot",
+          "params": [],
+          "body": [
+            {
+              "name": "id",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "webhook",
+              "type": "string",
+              "required": false
+            }
+          ],
+          "bodyRequired": true
+        }
+      ]
+    },
+    {
+      "tag": "Tracking",
+      "namespace": "tracking",
+      "className": "TrackingResource",
+      "filename": "tracking",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/tracking/track",
+          "key": "get_tracking_track",
+          "typeName": "GetTrackingTrackData",
+          "summary": "Track item",
+          "params": [
+            {
+              "name": "type",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "enum": [
+                "track",
+                "album",
+                "artist",
+                "playlist"
+              ]
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/tracking/track",
+          "key": "post_tracking_track",
+          "typeName": "PostTrackingTrackData",
+          "summary": "Track item",
+          "params": [],
+          "body": [
+            {
+              "name": "type",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "required": false
+            }
+          ],
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/tracking/untrack",
+          "key": "get_tracking_untrack",
+          "typeName": "GetTrackingUntrackData",
+          "summary": "Untrack item",
+          "params": [
+            {
+              "name": "type",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "DELETE",
+          "path": "/tracking/untrack",
+          "key": "delete_tracking_untrack",
+          "typeName": "DeleteTrackingUntrackData",
+          "summary": "Untrack item",
+          "params": [
+            {
+              "name": "type",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/tracking/items",
+          "key": "get_tracking_items",
+          "typeName": "GetTrackingItemsData",
+          "summary": "List tracked items",
+          "params": [
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/tracking/items/{spotifyType}/{spotifyId}",
+          "key": "get_tracking_items_spotifytype_spotifyid",
+          "typeName": "GetTrackingItemsSpotifytypeSpotifyidData",
+          "summary": "Tracked item detail",
+          "params": [
+            {
+              "name": "spotifyType",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "spotifyId",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/tracking/logs",
+          "key": "get_tracking_logs",
+          "typeName": "GetTrackingLogsData",
+          "summary": "Tracking change log",
+          "params": [
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/tracking/stats",
+          "key": "get_tracking_stats",
+          "typeName": "GetTrackingStatsData",
+          "summary": "Tracking stats",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/tracking/health",
+          "key": "get_tracking_health",
+          "typeName": "GetTrackingHealthData",
+          "summary": "Tracking health",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Tracks",
+      "namespace": "tracks",
+      "className": "TracksResource",
+      "filename": "tracks",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/tracks",
+          "key": "get_tracks",
+          "typeName": "GetTracksData",
+          "summary": "Get tracks",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated track IDs"
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/track_credits",
+          "key": "get_track_credits",
+          "typeName": "GetTrackCreditsData",
+          "summary": "Track credits",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/track_lyrics",
+          "key": "get_track_lyrics",
+          "typeName": "GetTrackLyricsData",
+          "summary": "Track lyrics",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "format",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "json",
+                "lrc",
+                "srt",
+                "raw"
+              ],
+              "default": "json"
+            },
+            {
+              "name": "vocalRemoval",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/recommendations",
+          "key": "get_recommendations",
+          "typeName": "GetRecommendationsData",
+          "summary": "Recommendations",
+          "params": [
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "seed_tracks",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "seed_artists",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "seed_genres",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Users",
+      "namespace": "users",
+      "className": "UsersResource",
+      "filename": "users",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/user_profile",
+          "key": "get_user_profile",
+          "typeName": "GetUserProfileData",
+          "summary": "User profile",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "playlistLimit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            },
+            {
+              "name": "artistLimit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 100
+            },
+            {
+              "name": "episodeLimit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 100
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/user_followers",
+          "key": "get_user_followers",
+          "typeName": "GetUserFollowersData",
+          "summary": "User followers",
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    },
+    {
+      "tag": "Webhooks",
+      "namespace": "webhooks",
+      "className": "WebhooksResource",
+      "filename": "webhooks",
+      "ops": [
+        {
+          "method": "GET",
+          "path": "/webhooks",
+          "key": "get_webhooks",
+          "typeName": "GetWebhooksData",
+          "summary": "List webhooks",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/webhooks/register",
+          "key": "post_webhooks_register",
+          "typeName": "PostWebhooksRegisterData",
+          "summary": "Register webhook",
+          "params": [],
+          "body": [
+            {
+              "name": "url",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "events",
+              "type": "string[]",
+              "required": false
+            }
+          ],
+          "bodyRequired": true
+        },
+        {
+          "method": "GET",
+          "path": "/webhooks/stats",
+          "key": "get_webhooks_stats",
+          "typeName": "GetWebhooksStatsData",
+          "summary": "Webhook stats",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "DELETE",
+          "path": "/webhooks/{id}",
+          "key": "delete_webhooks_id",
+          "typeName": "DeleteWebhooksIdData",
+          "summary": "Delete webhook",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "POST",
+          "path": "/webhooks/{id}/test",
+          "key": "post_webhooks_id_test",
+          "typeName": "PostWebhooksIdTestData",
+          "summary": "Trigger test webhook delivery",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/webhooks/{id}/deliveries",
+          "key": "get_webhooks_id_deliveries",
+          "typeName": "GetWebhooksIdDeliveriesData",
+          "summary": "Webhook delivery log",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        }
+      ]
+    }
+  ]
+}

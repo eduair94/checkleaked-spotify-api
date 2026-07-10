@@ -1,0 +1,75 @@
+{
+  "name": "@checkleaked/spotify-api",
+  "version": "1.0.0",
+  "description": "Zero-dependency TypeScript SDK for the Spotify Data API (checkleaked). RapidAPI spotify81-compatible. Fully typed coverage of every endpoint.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "format": "prettier --write \"src/**/*.ts\" \"scripts/**/*.ts\" \"test/**/*.ts\"",
+    "codegen:endpoints": "tsx scripts/build-endpoints.ts",
+    "codegen:sample": "tsx scripts/sample.ts",
+    "codegen:types": "tsx scripts/generate-types.ts",
+    "codegen:enhance": "tsx scripts/enhance-modules.ts",
+    "codegen:client": "tsx scripts/gen-client.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "spotify",
+    "spotify-api",
+    "spotify-data",
+    "rapidapi",
+    "spotify81",
+    "music",
+    "lyrics",
+    "charts",
+    "concerts",
+    "typescript",
+    "sdk",
+    "api-client"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduair94/checkleaked-spotify-api.git"
+  },
+  "homepage": "https://github.com/eduair94/checkleaked-spotify-api#readme",
+  "bugs": {
+    "url": "https://github.com/eduair94/checkleaked-spotify-api/issues"
+  },
+  "license": "MIT",
+  "author": "eduair94",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "prettier": "^3.4.2",
+    "quicktype": "^23.0.170",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

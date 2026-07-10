@@ -1,0 +1,9 @@
+node_modules
+dist
+fixtures
+payloads
+openapi.pretty.json
+*.log
+.DS_Store
+
+endpoints.json
