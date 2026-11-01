@@ -10,7 +10,9 @@ Zero-dependency, fully-typed TypeScript SDK for the **Spotify Data API** — 108
 - 📄 **Pagination helpers** for every `offset`/`limit` endpoint.
 - 🔌 **RapidAPI-compatible** out of the box (`spotify81.p.rapidapi.com`), with a `proxy` preset for direct keys.
 
-**Links:** [API reference](https://spotify-proxy.checkleaked.cc/docs) · [Status page](https://stats.uptimerobot.com/y2392u6LY0) · [RapidAPI listing](https://rapidapi.com/airaudoeduardo/api/spotify81) · [Changelog](./CHANGELOG.md) · Support: admin@checkleaked.cc
+**Links:** [API reference](https://spotify-proxy.checkleaked.cc/docs) · [Status page](https://spotify.checkleaked.cc/status) · [RapidAPI listing](https://rapidapi.com/airaudoeduardo/api/spotify81) · [Changelog](./CHANGELOG.md) · Support: admin@checkleaked.cc
+
+**Use it from an AI assistant:** the [Spotify Data MCP server](https://github.com/eduair94/spotify-data-mcp) puts play counts, monthly listeners, charts and catalog lookups into Claude, Cursor and VS Code.
 
 ## Install
 
