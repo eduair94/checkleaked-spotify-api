@@ -1,6 +1,6 @@
 {
   "name": "@checkleaked/spotify-api",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "Zero-dependency TypeScript SDK for the Spotify Data API (checkleaked). RapidAPI spotify81-compatible. Fully typed coverage of every endpoint.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -17,6 +17,7 @@
   "files": [
     "dist",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "sideEffects": false,
@@ -29,6 +30,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "format": "prettier --write \"src/**/*.ts\" \"scripts/**/*.ts\" \"test/**/*.ts\"",
+    "codegen:spec": "tsx scripts/sync-openapi.ts",
     "codegen:endpoints": "tsx scripts/build-endpoints.ts",
     "codegen:sample": "tsx scripts/sample.ts",
     "codegen:types": "tsx scripts/generate-types.ts",
@@ -54,7 +56,7 @@
     "type": "git",
     "url": "git+https://github.com/eduair94/checkleaked-spotify-api.git"
   },
-  "homepage": "https://spotify.checkleaked.cc",
+  "homepage": "https://spotify-proxy.checkleaked.cc/docs",
   "bugs": {
     "url": "https://github.com/eduair94/checkleaked-spotify-api/issues"
   },

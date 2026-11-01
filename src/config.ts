@@ -7,10 +7,17 @@ export const PROVIDERS = {
   proxy: { baseUrl: 'https://spotify-proxy.checkleaked.cc/spotify-data', host: undefined },
 } satisfies Record<Provider, { baseUrl: string; host: string | undefined }>;
 
-export const DEFAULT_USER_AGENT = '@checkleaked/spotify-api';
+/** Version of this SDK (kept in sync with package.json). */
+export const SDK_VERSION = '2.1.0';
+/** Versioned so the API can tell SDK traffic (and SDK versions) apart in its logs. */
+export const DEFAULT_USER_AGENT = `@checkleaked/spotify-api/${SDK_VERSION}`;
 export const DEFAULT_TIMEOUT_MS = 30_000;
 export const DEFAULT_RETRIES = 2;
 export const DEFAULT_RETRY_DELAY_MS = 500;
+/** Longest wait before a retry, even when the API's `Retry-After` asks for more. */
+export const DEFAULT_MAX_RETRY_DELAY_MS = 10_000;
+/** Retries a timeout (504, 524, or 503 `UPSTREAM_TIMEOUT`) may use: the API already spent its whole time budget on that request. */
+export const DEFAULT_GATEWAY_TIMEOUT_RETRIES = 1;
 
 /** Fully-resolved configuration used internally by the client. */
 export interface ResolvedConfig {
@@ -20,6 +27,8 @@ export interface ResolvedConfig {
   timeoutMs: number;
   retries: number;
   retryDelayMs: number;
+  maxRetryDelayMs: number;
+  gatewayTimeoutRetries: number;
   headers: Record<string, string>;
   fetch: FetchLike;
   userAgent: string;
@@ -78,6 +87,8 @@ export function resolveConfig(config: ClientConfig = {}): ResolvedConfig {
     timeoutMs: config.timeoutMs ?? DEFAULT_TIMEOUT_MS,
     retries: config.retries ?? DEFAULT_RETRIES,
     retryDelayMs: config.retryDelayMs ?? DEFAULT_RETRY_DELAY_MS,
+    maxRetryDelayMs: Math.max(0, config.maxRetryDelayMs ?? DEFAULT_MAX_RETRY_DELAY_MS),
+    gatewayTimeoutRetries: Math.max(0, config.gatewayTimeoutRetries ?? DEFAULT_GATEWAY_TIMEOUT_RETRIES),
     headers: config.headers ?? {},
     fetch: fetchImpl,
     userAgent: config.userAgent ?? DEFAULT_USER_AGENT,

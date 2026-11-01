@@ -4,14 +4,14 @@ import type { GetArtistCompareData, GetPlaylistAnalysisData } from '../generated
 
 /** Parameters for {@link AnalysisResource.artistCompare}. */
 export interface AnalysisArtistCompareParams {
-  /** Comma-separated artist IDs (2–10). */
+  /** Artist IDs (2–5). */
   ids: string | readonly string[];
 }
 
 /** Parameters for {@link AnalysisResource.audioFeatures}. */
 export interface AnalysisAudioFeaturesParams {
-  /** Spotify track ID. */
-  id: string;
+  /** Spotify track IDs (max 100). */
+  ids: string | readonly string[];
 }
 
 /** Parameters for {@link AnalysisResource.playlistAnalysis}. */
@@ -27,9 +27,9 @@ export class AnalysisResource extends Resource {
     return this.client.get<GetArtistCompareData>('/artist_compare', { ids: params.ids }, options);
   }
 
-  /** Get audio features for a track. */
+  /** Get audio features for one or more tracks. */
   audioFeatures(params: AnalysisAudioFeaturesParams, options?: RequestOverrides): Promise<unknown> {
-    return this.client.get<unknown>('/audio_features', { id: params.id }, options);
+    return this.client.get<unknown>('/audio_features', { ids: params.ids }, options);
   }
 
   /** Get analysis for a playlist. */

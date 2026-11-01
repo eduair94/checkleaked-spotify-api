@@ -18,11 +18,28 @@ export interface SuccessEnvelope<T = unknown> {
   metadata?: Record<string, unknown>;
 }
 
-/** The standard error envelope returned on failure. */
+/**
+ * The standard error envelope returned on failure. Older endpoints send only some of these
+ * fields (and a few send `error: true`), so every field is optional.
+ */
 export interface ErrorEnvelope {
-  success: boolean;
-  error?: string;
+  success?: boolean;
+  /** Short error title. */
+  error?: string | boolean;
   message?: string;
+  /** Machine-readable code, e.g. `INVALID_PARAMETER` or `UPSTREAM_THROTTLED`. */
+  code?: string;
+  status?: number;
+  status_code?: number;
+  retryable?: boolean;
+  /** Seconds to wait before retrying (same as the `Retry-After` header). */
+  retry_after_s?: number;
+  /** The query parameter that was missing or invalid. */
+  param?: string;
+  /** A valid example call. */
+  example?: string;
+  request_id?: string;
+  timestamp?: string;
 }
 
 /** A value acceptable in a query string. Arrays are serialized as comma-separated. */
@@ -53,6 +70,11 @@ export interface RequestOverrides {
   signal?: AbortSignal;
   /** Extra headers merged over the defaults for this request only. */
   headers?: Record<string, string>;
+  /**
+   * Extra query parameters merged over the method's own, e.g. `{ cache: false }` to force a
+   * fresh fetch, or a parameter this SDK version does not type yet.
+   */
+  query?: QueryParams;
 }
 
 /** Full description of a single HTTP request. */
@@ -85,6 +107,18 @@ export interface ClientConfig {
   retries?: number;
   /** Base backoff delay in milliseconds (exponential w/ jitter). Default `500`. */
   retryDelayMs?: number;
+  /**
+   * Longest wait before a retry, in milliseconds, even when the API's `Retry-After` asks for
+   * more (the error still reports the requested wait in `retryAfterMs`). Default `10000`.
+   */
+  maxRetryDelayMs?: number;
+  /**
+   * How many of the `retries` may be spent on a timeout: a 503 `UPSTREAM_TIMEOUT` (the API's
+   * answer since 2026-10), an HTTP 504, or Cloudflare's HTTP 524. The API already used its whole
+   * time budget on such a request. Other 5xx use the `retries` as usual.
+   * Default `1`; `0` never retries a timeout.
+   */
+  gatewayTimeoutRetries?: number;
   /** Extra headers merged into every request. */
   headers?: Record<string, string>;
   /** Custom `fetch` implementation. Defaults to the global `fetch`. */

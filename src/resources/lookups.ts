@@ -4,14 +4,16 @@ import type { GetIsrcLookupData, GetUpcLookupData } from '../generated/responses
 
 /** Parameters for {@link LookupsResource.isrc}. */
 export interface LookupsIsrcParams {
-  /** International Standard Recording Code identifying the track. */
+  /** 12-character International Standard Recording Code, e.g. `USUG11904206`. */
   isrc: string;
 }
 
 /** Parameters for {@link LookupsResource.upc}. */
 export interface LookupsUpcParams {
-  /** Universal Product Code identifying the album. */
+  /** Universal Product Code / EAN identifying the album. */
   upc: string;
+  /** ISO 3166-1 alpha-2 market code. Default `US`. */
+  market?: string;
 }
 
 /** Identifier lookup endpoints (ISRC / UPC). */
@@ -23,6 +25,6 @@ export class LookupsResource extends Resource {
 
   /** Lookup an album by its UPC. */
   upc(params: LookupsUpcParams, options?: RequestOverrides): Promise<GetUpcLookupData> {
-    return this.client.get<GetUpcLookupData>('/upc_lookup', { upc: params.upc }, options);
+    return this.client.get<GetUpcLookupData>('/upc_lookup', { upc: params.upc, market: params.market }, options);
   }
 }

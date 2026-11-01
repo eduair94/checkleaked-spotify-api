@@ -19,9 +19,9 @@ export interface ConcertsFeedParams {
   geoHash: string;
   /** Geoname ID (from `/partner/concert-locations`). */
   geonameId: string;
-  /** Start of date range (YYYY-MM-DD). */
+  /** Start of date range (YYYY-MM-DD). Required by the API. */
   from?: string;
-  /** End of date range (YYYY-MM-DD). */
+  /** End of date range (YYYY-MM-DD). Required by the API. */
   to?: string;
   radiusInKm?: number;
   /** Comma-separated Spotify concept URIs (e.g. `spotify:concept:rock,spotify:concept:pop`). */
@@ -42,7 +42,7 @@ export interface ConcertsGetParams {
   id: string;
   /** Return a flat, normalized concert shape instead of raw GraphQL. */
   parsed?: boolean;
-  /** Set `false` to query as anonymous user (omits `me.profile` block). */
+  /** @deprecated Ignored by the API (concerts are always fetched anonymously). */
   authenticated?: boolean;
 }
 

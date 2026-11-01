@@ -1,13 +1,21 @@
 import { Resource } from './base';
+import type { CatalogBatchGaps } from './tracks';
 import type { RequestOverrides } from '../types/common';
 import type { GetAlbumsData, GetAlbumTracksData, GetAlbumMetadataData } from '../generated/responses';
 
 /** Parameters for {@link AlbumsResource.get}. */
 export interface AlbumsGetParams {
-  /** Comma-separated Spotify album IDs. */
+  /**
+   * Spotify album IDs (max 50; API releases before 1.2.0 accept 20). Ids without an album are
+   * listed in `missing` (Spotify does not know them) or `unavailable` (retry them later).
+   */
   ids: string | readonly string[];
+  /** ISO 3166-1 alpha-2 market code, e.g. `US`. */
+  market?: string;
   /** Comma-separated providers to contrast against, e.g. `ytmusic,applemusic`. */
   contrast?: string;
+  /** `playcounts` adds `playcount` (lifetime plays, `null` if unknown) to every album track. */
+  include?: 'playcounts' | readonly 'playcounts'[];
 }
 
 /** Parameters for {@link AlbumsResource.tracks}. */
@@ -28,8 +36,12 @@ export interface AlbumMetadataParams {
 /** Album endpoints. */
 export class AlbumsResource extends Resource {
   /** Get one or more albums by ID. */
-  get(params: AlbumsGetParams, options?: RequestOverrides): Promise<GetAlbumsData> {
-    return this.client.get<GetAlbumsData>('/albums', { ids: params.ids, contrast: params.contrast }, options);
+  get(params: AlbumsGetParams, options?: RequestOverrides): Promise<GetAlbumsData & CatalogBatchGaps> {
+    return this.client.get<GetAlbumsData & CatalogBatchGaps>(
+      '/albums',
+      { ids: params.ids, market: params.market, contrast: params.contrast, include: params.include },
+      options,
+    );
   }
 
   /** Get an album's tracks (paginated). */

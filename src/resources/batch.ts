@@ -10,33 +10,35 @@ import type {
 
 /** Parameters for {@link BatchResource.albumMetadata}. */
 export interface BatchAlbumMetadataParams {
-  /** Comma-separated album IDs (max 25). */
+  /** Album IDs (max 20). */
   ids: string | readonly string[];
 }
 
 /** Parameters for {@link BatchResource.artistOverview}. */
 export interface BatchArtistOverviewParams {
-  /** Comma-separated artist IDs (max 25). */
+  /** Artist IDs (max 10). */
   ids: string | readonly string[];
 }
 
 /** Parameters for {@link BatchResource.trackCredits}. */
 export interface BatchTrackCreditsParams {
-  /** Comma-separated track IDs (max 25). */
+  /** Track IDs (max 20). */
   ids: string | readonly string[];
 }
 
 /** Parameters for {@link BatchResource.trackLyrics}. */
 export interface BatchTrackLyricsParams {
-  /** Comma-separated track IDs. */
+  /** Track IDs (max 10). Tracks without lyrics come back as `{id, lyrics: null, error, notFound: true}`. */
   ids: string | readonly string[];
   /** Lyrics output format. Default `json`. */
   format?: 'json' | 'lrc' | 'srt' | 'raw';
+  /** Request the vocal-removal (instrumental) variant. */
+  vocalRemoval?: boolean;
 }
 
 /** Parameters for {@link BatchResource.trackPopularity}. */
 export interface BatchTrackPopularityParams {
-  /** Comma-separated track IDs. */
+  /** Track IDs (max 50). */
   ids: string | readonly string[];
 }
 
@@ -61,7 +63,7 @@ export class BatchResource extends Resource {
   trackLyrics(params: BatchTrackLyricsParams, options?: RequestOverrides): Promise<GetTrackLyricsBatchData> {
     return this.client.get<GetTrackLyricsBatchData>(
       '/track_lyrics_batch',
-      { ids: params.ids, format: params.format },
+      { ids: params.ids, format: params.format, vocalRemoval: params.vocalRemoval },
       options,
     );
   }

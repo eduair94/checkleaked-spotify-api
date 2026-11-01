@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "totalOps": 123,
+  "version": "1.2.0",
+  "totalOps": 121,
   "tags": [
     {
       "tag": "AI",
@@ -34,7 +34,55 @@
           "key": "get_ai_analyze",
           "typeName": "GetAiAnalyzeData",
           "summary": "Generic AI analysis",
-          "params": [],
+          "params": [
+            {
+              "name": "type",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "enum": [
+                "chart_trend_analysis",
+                "artist_career_summary",
+                "album_review",
+                "track_deep_dive",
+                "playlist_curator_tips",
+                "market_comparison",
+                "genre_landscape",
+                "listening_mood_profile",
+                "viral_potential",
+                "custom"
+              ],
+              "description": "Insight type (see `/ai/types`)."
+            },
+            {
+              "name": "data",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Data to analyse (JSON). Prefer POST for large payloads."
+            },
+            {
+              "name": "context",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -54,7 +102,65 @@
           "key": "get_ai_chart_trends",
           "typeName": "GetAiChartTrendsData",
           "summary": "Chart trends analysis",
-          "params": [],
+          "params": [
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "global"
+            },
+            {
+              "name": "period",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly"
+              ],
+              "default": "daily"
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "city",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "chartType",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "tracks",
+                "artists",
+                "albums"
+              ],
+              "default": "tracks"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -74,7 +180,29 @@
           "key": "get_ai_artist_summary",
           "typeName": "GetAiArtistSummaryData",
           "summary": "Artist summary",
-          "params": [],
+          "params": [
+            {
+              "name": "artistId",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -94,7 +222,29 @@
           "key": "get_ai_album_review",
           "typeName": "GetAiAlbumReviewData",
           "summary": "Album review",
-          "params": [],
+          "params": [
+            {
+              "name": "albumId",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -114,7 +264,29 @@
           "key": "get_ai_track_deep_dive",
           "typeName": "GetAiTrackDeepDiveData",
           "summary": "Track deep dive",
-          "params": [],
+          "params": [
+            {
+              "name": "trackId",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -134,7 +306,41 @@
           "key": "get_ai_playlist_curator",
           "typeName": "GetAiPlaylistCuratorData",
           "summary": "Playlist curator",
-          "params": [],
+          "params": [
+            {
+              "name": "playlistId",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "mood",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "targetSize",
+              "in": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -154,7 +360,47 @@
           "key": "get_ai_market_comparison",
           "typeName": "GetAiMarketComparisonData",
           "summary": "Market comparison",
-          "params": [],
+          "params": [
+            {
+              "name": "countries",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated country codes (at least 2), e.g. `us,gb,br`."
+            },
+            {
+              "name": "period",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly"
+              ],
+              "default": "daily"
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -174,7 +420,47 @@
           "key": "get_ai_genre_landscape",
           "typeName": "GetAiGenreLandscapeData",
           "summary": "Genre landscape",
-          "params": [],
+          "params": [
+            {
+              "name": "genre",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "global"
+            },
+            {
+              "name": "period",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly"
+              ],
+              "default": "daily"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -194,7 +480,29 @@
           "key": "get_ai_mood_profile",
           "typeName": "GetAiMoodProfileData",
           "summary": "Mood profile",
-          "params": [],
+          "params": [
+            {
+              "name": "playlistId",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -214,7 +522,29 @@
           "key": "get_ai_viral_potential",
           "typeName": "GetAiViralPotentialData",
           "summary": "Viral potential",
-          "params": [],
+          "params": [
+            {
+              "name": "trackId",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -234,7 +564,29 @@
           "key": "get_ai_custom",
           "typeName": "GetAiCustomData",
           "summary": "Custom AI prompt",
-          "params": [],
+          "params": [
+            {
+              "name": "question",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Language of the generated analysis (for example `en`, `es`)."
+            },
+            {
+              "name": "showPrompt",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include the prompt that was sent to the model in the response."
+            }
+          ],
           "body": null,
           "bodyRequired": false
         },
@@ -268,7 +620,24 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "Comma-separated album IDs"
+              "description": "Comma-separated album IDs (max 50)."
+            },
+            {
+              "name": "include",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "playcounts"
+              ],
+              "description": "`playcounts`: `playcount` (lifetime plays) on every `tracks.items[]` entry, one call per\nalbum (about +0.3 s, cached 1 h). `include_status` reports `{requested, resolved}`;\na track whose count could not be fetched has `playcount: null`.\n"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code. Filters availability and relinks tracks for that market."
             },
             {
               "name": "contrast",
@@ -356,7 +725,7 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "Comma-separated artist IDs (2–10)."
+              "description": "Comma-separated artist IDs (2–5)."
             }
           ],
           "body": null,
@@ -370,10 +739,11 @@
           "summary": "Audio features",
           "params": [
             {
-              "name": "id",
+              "name": "ids",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "description": "Comma-separated track IDs (max 100)."
             }
           ],
           "body": null,
@@ -416,7 +786,21 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "Comma-separated artist IDs"
+              "description": "Comma-separated artist IDs (max 50)."
+            },
+            {
+              "name": "include",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated extra data:\n- `stats`: a `stats` object per artist — `followers`, `monthly_listeners`, `world_rank`,\n  `top_cities` (city, country, region, listeners) — and `followers.total` filled when null\n  (about +0.5-1 s for 50 artists, cached 1 h).\n- `insights`: an `insights` object per artist — `genres`, `moods`, `activities` (mean\n  weight over the top tracks and how many carry each), `bpm`, `country`, `top_track_ids`\n  (same data as `/artist_insights`; about +0.3 s).\n`include_status` reports `{requested, resolved}` per option; unknown values are null.\n"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code. Filters availability and relinks tracks for that market."
             },
             {
               "name": "contrast",
@@ -441,6 +825,28 @@
               "in": "query",
               "required": true,
               "type": "string"
+            },
+            {
+              "name": "slim",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "1",
+                "true"
+              ],
+              "description": "Set to `1` or `true` to drop the heavy embedded blocks (see \"Slim responses\")."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             },
             {
               "name": "contrast",
@@ -617,7 +1023,38 @@
               "name": "market",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "default": "US",
+              "description": "ISO 3166-1 alpha-2 country code."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/artist_insights",
+          "key": "get_artist_insights",
+          "typeName": "GetArtistInsightsData",
+          "summary": "Artist genres, moods and BPM from the top tracks (batch)",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated artist IDs, spotify:artist URIs or open.spotify.com URLs (1-20). `id` is accepted for a single artist."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -648,7 +1085,8 @@
               "name": "market",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "default": "US"
             }
           ],
           "body": null,
@@ -671,7 +1109,8 @@
               "name": "market",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "default": "US"
             }
           ],
           "body": null,
@@ -702,7 +1141,14 @@
               "in": "query",
               "required": false,
               "type": "integer",
-              "default": 10
+              "default": 20
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "US"
             }
           ],
           "body": null,
@@ -728,7 +1174,7 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "Comma-separated album IDs (max 25)."
+              "description": "Comma-separated album IDs (max 20)."
             }
           ],
           "body": null,
@@ -746,7 +1192,7 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "Comma-separated artist IDs (max 25)."
+              "description": "Comma-separated artist IDs (max 10)."
             }
           ],
           "body": null,
@@ -764,7 +1210,7 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "Comma-separated track IDs (max 25)."
+              "description": "Comma-separated track IDs (max 20)."
             }
           ],
           "body": null,
@@ -781,7 +1227,8 @@
               "name": "ids",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "description": "Comma-separated track IDs (max 10)."
             },
             {
               "name": "format",
@@ -795,6 +1242,13 @@
                 "raw"
               ],
               "default": "json"
+            },
+            {
+              "name": "vocalRemoval",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false
             }
           ],
           "body": null,
@@ -811,7 +1265,8 @@
               "name": "ids",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "description": "Comma-separated track IDs (max 50)."
             }
           ],
           "body": null,
@@ -833,23 +1288,18 @@
           "summary": "Browse categories",
           "params": [
             {
-              "name": "country",
-              "in": "query",
-              "required": false,
-              "type": "string"
-            },
-            {
               "name": "locale",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "description": "Language of category names, e.g. `en_US`."
             },
             {
               "name": "limit",
               "in": "query",
               "required": false,
               "type": "integer",
-              "default": 10
+              "default": 20
             },
             {
               "name": "offset",
@@ -879,13 +1329,44 @@
               "name": "country",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code."
             },
             {
               "name": "locale",
               "in": "query",
               "required": false,
               "type": "string"
+            },
+            {
+              "name": "section_limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            },
+            {
+              "name": "section_offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "item_limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10,
+              "description": "Items per section (`limit` is accepted as an alias)."
+            },
+            {
+              "name": "item_offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0,
+              "description": "Item offset per section (`offset` is accepted as an alias)."
             }
           ],
           "body": null,
@@ -899,23 +1380,24 @@
           "summary": "Featured playlists",
           "params": [
             {
-              "name": "country",
-              "in": "query",
-              "required": false,
-              "type": "string"
-            },
-            {
               "name": "locale",
               "in": "query",
               "required": false,
               "type": "string"
             },
             {
+              "name": "timestamp",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 8601 local time used to pick time-of-day playlists."
+            },
+            {
               "name": "limit",
               "in": "query",
               "required": false,
               "type": "integer",
-              "default": 10
+              "default": 20
             },
             {
               "name": "offset",
@@ -939,14 +1421,16 @@
               "name": "country",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "default": "US",
+              "description": "ISO 3166-1 alpha-2 country code."
             },
             {
               "name": "limit",
               "in": "query",
               "required": false,
               "type": "integer",
-              "default": 10
+              "default": 20
             },
             {
               "name": "offset",
@@ -954,6 +1438,17 @@
               "required": false,
               "type": "integer",
               "default": 0
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -989,49 +1484,17 @@
               "in": "query",
               "required": false,
               "type": "integer",
-              "default": 10
-            }
-          ],
-          "body": null,
-          "bodyRequired": false
-        }
-      ]
-    },
-    {
-      "tag": "Cache",
-      "namespace": "cache",
-      "className": "CacheResource",
-      "filename": "cache",
-      "ops": [
-        {
-          "method": "GET",
-          "path": "/cache/stats",
-          "key": "get_cache_stats",
-          "typeName": "GetCacheStatsData",
-          "summary": "Cache stats",
-          "params": [],
-          "body": null,
-          "bodyRequired": false
-        },
-        {
-          "method": "POST",
-          "path": "/cache/invalidate",
-          "key": "post_cache_invalidate",
-          "typeName": "PostCacheInvalidateData",
-          "summary": "Invalidate cache",
-          "params": [],
-          "body": [
-            {
-              "name": "key",
-              "type": "string",
-              "required": false
+              "default": 20
             },
             {
-              "name": "pattern",
+              "name": "market",
+              "in": "query",
+              "required": false,
               "type": "string",
-              "required": false
+              "description": "ISO 3166-1 alpha-2 country code. Filters availability and relinks tracks for that market."
             }
           ],
+          "body": null,
           "bodyRequired": false
         }
       ]
@@ -1047,7 +1510,7 @@
           "path": "/top_20_by_monthly_listeners",
           "key": "get_top_20_by_monthly_listeners",
           "typeName": "GetTop20ByMonthlyListenersData",
-          "summary": "Top 20 by monthly listeners",
+          "summary": "Most-listened artists (monthly listeners)",
           "params": [],
           "body": null,
           "bodyRequired": false
@@ -1064,6 +1527,10 @@
               "in": "query",
               "required": false,
               "type": "string",
+              "enum": [
+                "daily",
+                "weekly"
+              ],
               "default": "daily"
             },
             {
@@ -1071,13 +1538,33 @@
               "in": "query",
               "required": false,
               "type": "string",
-              "default": "global"
+              "default": "global",
+              "description": "ISO 3166-1 alpha-2 code of a Spotify Charts market (case-insensitive) or `global`. Invalid values return 400 listing the valid ones."
             },
             {
               "name": "date",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "description": "Chart date (YYYY-MM-DD). Defaults to the latest published chart. If that date has no chart, up to 7 earlier dates are tried (weekly charts snap to Thursdays)."
+            },
+            {
+              "name": "city",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Top 200 tracks only. City chart instead of a country chart (for example `saopaulo`). Spaces are ignored."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -1095,6 +1582,10 @@
               "in": "query",
               "required": false,
               "type": "string",
+              "enum": [
+                "daily",
+                "weekly"
+              ],
               "default": "daily"
             },
             {
@@ -1102,7 +1593,26 @@
               "in": "query",
               "required": false,
               "type": "string",
-              "default": "global"
+              "default": "global",
+              "description": "ISO 3166-1 alpha-2 code of a Spotify Charts market (case-insensitive) or `global`. Invalid values return 400 listing the valid ones."
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Chart date (YYYY-MM-DD). Defaults to the latest published chart. If that date has no chart, up to 7 earlier dates are tried (weekly charts snap to Thursdays)."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -1116,18 +1626,30 @@
           "summary": "Top albums chart",
           "params": [
             {
-              "name": "period",
-              "in": "query",
-              "required": false,
-              "type": "string",
-              "default": "daily"
-            },
-            {
               "name": "country",
               "in": "query",
               "required": false,
               "type": "string",
-              "default": "global"
+              "default": "global",
+              "description": "ISO 3166-1 alpha-2 code of a Spotify Charts market (case-insensitive) or `global`. Invalid values return 400 listing the valid ones."
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Chart date (YYYY-MM-DD). Defaults to the latest published chart. If that date has no chart, up to 7 earlier dates are tried (weekly charts snap to Thursdays)."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -1145,7 +1667,26 @@
               "in": "query",
               "required": false,
               "type": "string",
-              "default": "global"
+              "default": "global",
+              "description": "ISO 3166-1 alpha-2 code of a Spotify Charts market (case-insensitive) or `global`. Invalid values return 400 listing the valid ones."
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Chart date (YYYY-MM-DD). Defaults to the latest published chart. If that date has no chart, up to 7 earlier dates are tried (weekly charts snap to Thursdays)."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -1156,7 +1697,7 @@
           "path": "/top_20_by_followers",
           "key": "get_top_20_by_followers",
           "typeName": "GetTop20ByFollowersData",
-          "summary": "Top 20 by followers",
+          "summary": "Most-followed artists",
           "params": [],
           "body": null,
           "bodyRequired": false
@@ -1181,7 +1722,7 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "City, venue, or place name."
+              "description": "City, venue, or place name (`q` is accepted as an alias)."
             }
           ],
           "body": null,
@@ -1211,14 +1752,14 @@
             {
               "name": "from",
               "in": "query",
-              "required": false,
+              "required": true,
               "type": "string",
               "description": "Start of date range (YYYY-MM-DD)."
             },
             {
               "name": "to",
               "in": "query",
-              "required": false,
+              "required": true,
               "type": "string",
               "description": "End of date range (YYYY-MM-DD)."
             },
@@ -1292,14 +1833,6 @@
               "type": "boolean",
               "default": false,
               "description": "Return a flat, normalized concert shape instead of raw GraphQL."
-            },
-            {
-              "name": "authenticated",
-              "in": "query",
-              "required": false,
-              "type": "boolean",
-              "default": true,
-              "description": "Set `false` to query as anonymous user (omits `me.profile` block)."
             }
           ],
           "body": null,
@@ -1374,7 +1907,7 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "Artist name to search."
+              "description": "Artist name to search (`q` is accepted as an alias)."
             },
             {
               "name": "geoHash",
@@ -1429,34 +1962,6 @@
       ]
     },
     {
-      "tag": "Credentials",
-      "namespace": "credentials",
-      "className": "CredentialsResource",
-      "filename": "credentials",
-      "ops": [
-        {
-          "method": "GET",
-          "path": "/credentials/status",
-          "key": "get_credentials_status",
-          "typeName": "GetCredentialsStatusData",
-          "summary": "Credentials status",
-          "params": [],
-          "body": null,
-          "bodyRequired": false
-        },
-        {
-          "method": "GET",
-          "path": "/cookies/redis",
-          "key": "get_cookies_redis",
-          "typeName": "GetCookiesRedisData",
-          "summary": "Redis cookies status",
-          "params": [],
-          "body": null,
-          "bodyRequired": false
-        }
-      ]
-    },
-    {
       "tag": "Downloads",
       "namespace": "downloads",
       "className": "DownloadsResource",
@@ -1467,13 +1972,59 @@
           "path": "/download_track",
           "key": "get_download_track",
           "typeName": "GetDownloadTrackData",
-          "summary": "Download track",
+          "summary": "Download track (YouTube)",
           "params": [
             {
               "name": "q",
               "in": "query",
               "required": true,
               "type": "string"
+            },
+            {
+              "name": "q_youtube",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Custom YouTube search query (overrides the one derived from `q`)."
+            },
+            {
+              "name": "onlyLinks",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Return only the download object, without Spotify track data."
+            },
+            {
+              "name": "bypassSpotify",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Search YouTube with `q` as-is, skipping the Spotify lookup (implied for URLs)."
+            },
+            {
+              "name": "downloadFullVideo",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Download the video instead of audio only."
+            },
+            {
+              "name": "quality",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "yt-dlp format selector (video format when `downloadFullVideo=true`, otherwise audio format)."
+            },
+            {
+              "name": "extraUrls",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Include alternative download URLs."
             }
           ],
           "body": null,
@@ -1491,6 +2042,14 @@
               "in": "query",
               "required": true,
               "type": "string"
+            },
+            {
+              "name": "onlyLinks",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false,
+              "description": "Return only the download object, without Spotify track data."
             }
           ],
           "body": null,
@@ -1521,7 +2080,8 @@
               "name": "market",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "default": "US"
             }
           ],
           "body": null,
@@ -1544,7 +2104,8 @@
               "name": "market",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "default": "US"
             }
           ],
           "body": null,
@@ -1570,10 +2131,20 @@
         },
         {
           "method": "GET",
+          "path": "/status",
+          "key": "get_status",
+          "typeName": "GetStatusData",
+          "summary": "Service status",
+          "params": [],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
           "path": "/health",
           "key": "get_health",
           "typeName": "GetHealthData",
-          "summary": "Cluster health",
+          "summary": "Health check",
           "params": [],
           "body": null,
           "bodyRequired": false
@@ -1607,36 +2178,6 @@
           "params": [],
           "body": null,
           "bodyRequired": false
-        },
-        {
-          "method": "GET",
-          "path": "/health/proxies",
-          "key": "get_health_proxies",
-          "typeName": "GetHealthProxiesData",
-          "summary": "Proxy health",
-          "params": [],
-          "body": null,
-          "bodyRequired": false
-        },
-        {
-          "method": "POST",
-          "path": "/health/proxies/clear",
-          "key": "post_health_proxies_clear",
-          "typeName": "PostHealthProxiesClearData",
-          "summary": "Clear proxy stats",
-          "params": [],
-          "body": null,
-          "bodyRequired": false
-        },
-        {
-          "method": "POST",
-          "path": "/health/clear-errors",
-          "key": "post_health_clear_errors",
-          "typeName": "PostHealthClearErrorsData",
-          "summary": "Clear error counters",
-          "params": [],
-          "body": null,
-          "bodyRequired": false
         }
       ]
     },
@@ -1657,7 +2198,8 @@
               "name": "isrc",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "description": "12-character ISRC, e.g. `USUG11904206` (case-insensitive; spaces and dashes are ignored). A malformed ISRC returns 400; one that matches no track returns 404 (remembered for about 10 minutes, so a repeat answers at once); one Spotify does not answer for within about 12 seconds returns 503 `UPSTREAM_TIMEOUT` with `isrc` and `Retry-After`."
             }
           ],
           "body": null,
@@ -1674,7 +2216,16 @@
               "name": "upc",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "description": "UPC or EAN barcode."
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "US",
+              "description": "ISO 3166-1 alpha-2 country code."
             }
           ],
           "body": null,
@@ -1733,6 +2284,13 @@
               "required": false,
               "type": "integer",
               "default": 25
+            },
+            {
+              "name": "enableWatchFeedEntrypoint",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": true
             }
           ],
           "body": null,
@@ -1750,6 +2308,28 @@
               "in": "query",
               "required": true,
               "type": "string"
+            },
+            {
+              "name": "slim",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "1",
+                "true"
+              ],
+              "description": "Set to `1` or `true` to drop the heavy embedded blocks (see \"Slim responses\")."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -1769,10 +2349,57 @@
               "type": "string"
             },
             {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Alias of `spotify_track_id`."
+            },
+            {
               "name": "isrc",
               "in": "query",
               "required": false,
               "type": "string"
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/partner/tracks/count",
+          "key": "get_partner_tracks_count",
+          "typeName": "GetPartnerTracksCountData",
+          "summary": "Track play counts (batch)",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated track IDs (1-50)."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -1796,7 +2423,7 @@
               "in": "query",
               "required": false,
               "type": "string",
-              "default": "intl-es"
+              "default": "en"
             },
             {
               "name": "offset",
@@ -1841,7 +2468,30 @@
               "in": "query",
               "required": false,
               "type": "boolean",
-              "default": false
+              "default": false,
+              "description": "Include upcoming releases (`includePreReleases` is accepted as an alias)."
+            },
+            {
+              "name": "slim",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "1",
+                "true"
+              ],
+              "description": "Set to `1` or `true` to drop the heavy embedded blocks (see \"Slim responses\")."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -1898,6 +2548,13 @@
               "in": "query",
               "required": true,
               "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code. Filters availability and relinks tracks for that market."
             }
           ],
           "body": null,
@@ -1929,6 +2586,13 @@
               "required": false,
               "type": "integer",
               "default": 100
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code. Filters availability and relinks tracks for that market."
             }
           ],
           "body": null,
@@ -1945,7 +2609,8 @@
               "name": "uri",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "description": "Spotify URI, e.g. `spotify:track:4cOdK2wGLETKBW3PvgPWqT`."
             }
           ],
           "body": null,
@@ -1977,8 +2642,19 @@
               "in": "query",
               "required": false,
               "type": "string",
+              "enum": [
+                "multi",
+                "tracks",
+                "albums",
+                "artists",
+                "playlists",
+                "podcasts",
+                "episodes",
+                "users",
+                "genres"
+              ],
               "default": "multi",
-              "description": "Search type: multi, tracks, albums, artists, playlists, etc."
+              "description": "Result type. `multi` returns every bucket plus top results. A single type is answered\nfrom Spotify's own search for that type (the web player's Songs / Artists / Albums… tabs):\nabout twice as fast as `multi`, and object buckets carry `pagingInfo` (`limit`, `nextOffset`).\n"
             },
             {
               "name": "offset",
@@ -2000,6 +2676,28 @@
               "required": false,
               "type": "integer",
               "default": 5
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code. Filters availability and relinks tracks for that market."
+            },
+            {
+              "name": "includeAudiobooks",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "timeout",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 30000,
+              "description": "Time limit per search attempt, in milliseconds. It can only shorten a search: `/search`\nmakes at most two attempts of up to 8 seconds each and answers within about 20 seconds,\nso values above 8000 change nothing.\n"
             },
             {
               "name": "contrast",
@@ -2026,18 +2724,54 @@
               "type": "string"
             },
             {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 50
+            },
+            {
               "name": "numberOfTopResults",
               "in": "query",
               "required": false,
               "type": "integer",
-              "default": 5
+              "default": 50
             },
             {
-              "name": "contrast",
+              "name": "includeAudiobooks",
               "in": "query",
               "required": false,
-              "type": "string",
-              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "includeAuthors",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "includePreReleases",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "timeout",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 30000,
+              "description": "Search budget in milliseconds (max 120000)."
             }
           ],
           "body": null,
@@ -2153,18 +2887,29 @@
               "type": "string"
             },
             {
+              "name": "markets",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated ISO market codes (max 10), e.g. `US,GB,DE`."
+            },
+            {
               "name": "type",
               "in": "query",
               "required": false,
               "type": "string",
-              "default": "multi"
-            },
-            {
-              "name": "markets",
-              "in": "query",
-              "required": false,
-              "type": "string",
-              "description": "Comma-separated ISO market codes (e.g. `US,GB,DE`)."
+              "enum": [
+                "multi",
+                "tracks",
+                "albums",
+                "artists",
+                "playlists",
+                "podcasts",
+                "episodes",
+                "users",
+                "genres"
+              ],
+              "default": "tracks"
             },
             {
               "name": "limit",
@@ -2202,7 +2947,8 @@
               "name": "market",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "default": "US"
             }
           ],
           "body": null,
@@ -2225,7 +2971,8 @@
               "name": "market",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "default": "US"
             }
           ],
           "body": null,
@@ -2256,7 +3003,14 @@
               "in": "query",
               "required": false,
               "type": "integer",
-              "default": 10
+              "default": 20
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "default": "US"
             }
           ],
           "body": null,
@@ -2282,6 +3036,28 @@
               "in": "query",
               "required": true,
               "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 10
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
+            },
+            {
+              "name": "include_tracks",
+              "in": "query",
+              "required": false,
+              "type": "boolean",
+              "default": true,
+              "description": "Set to `false` to omit the stored track lists."
             }
           ],
           "body": null,
@@ -2293,20 +3069,23 @@
           "key": "post_playlist_snapshot",
           "typeName": "PostPlaylistSnapshotData",
           "summary": "Create playlist snapshot",
-          "params": [],
+          "params": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Playlist ID (alternative to the body field)."
+            }
+          ],
           "body": [
             {
               "name": "id",
               "type": "string",
               "required": false
-            },
-            {
-              "name": "webhook",
-              "type": "string",
-              "required": false
             }
           ],
-          "bodyRequired": true
+          "bodyRequired": false
         }
       ]
     },
@@ -2324,7 +3103,14 @@
           "summary": "Track item",
           "params": [
             {
-              "name": "type",
+              "name": "spotifyId",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "22-character Spotify ID."
+            },
+            {
+              "name": "spotifyType",
               "in": "query",
               "required": true,
               "type": "string",
@@ -2336,10 +3122,11 @@
               ]
             },
             {
-              "name": "id",
+              "name": "label",
               "in": "query",
-              "required": true,
-              "type": "string"
+              "required": false,
+              "type": "string",
+              "description": "Optional label for your own reference."
             }
           ],
           "body": null,
@@ -2354,17 +3141,22 @@
           "params": [],
           "body": [
             {
-              "name": "type",
+              "name": "spotifyId",
               "type": "string",
-              "required": false
+              "required": true
             },
             {
-              "name": "id",
+              "name": "spotifyType",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "label",
               "type": "string",
               "required": false
             }
           ],
-          "bodyRequired": false
+          "bodyRequired": true
         },
         {
           "method": "GET",
@@ -2374,16 +3166,22 @@
           "summary": "Untrack item",
           "params": [
             {
-              "name": "type",
+              "name": "spotifyId",
               "in": "query",
               "required": true,
               "type": "string"
             },
             {
-              "name": "id",
+              "name": "spotifyType",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "track",
+                "album",
+                "artist",
+                "playlist"
+              ]
             }
           ],
           "body": null,
@@ -2397,16 +3195,22 @@
           "summary": "Untrack item",
           "params": [
             {
-              "name": "type",
+              "name": "spotifyId",
               "in": "query",
               "required": true,
               "type": "string"
             },
             {
-              "name": "id",
+              "name": "spotifyType",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "track",
+                "album",
+                "artist",
+                "playlist"
+              ]
             }
           ],
           "body": null,
@@ -2418,22 +3222,7 @@
           "key": "get_tracking_items",
           "typeName": "GetTrackingItemsData",
           "summary": "List tracked items",
-          "params": [
-            {
-              "name": "offset",
-              "in": "query",
-              "required": false,
-              "type": "integer",
-              "default": 0
-            },
-            {
-              "name": "limit",
-              "in": "query",
-              "required": false,
-              "type": "integer",
-              "default": 10
-            }
-          ],
+          "params": [],
           "body": null,
           "bodyRequired": false
         },
@@ -2448,7 +3237,13 @@
               "name": "spotifyType",
               "in": "path",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "track",
+                "album",
+                "artist",
+                "playlist"
+              ]
             },
             {
               "name": "spotifyId",
@@ -2468,18 +3263,68 @@
           "summary": "Tracking change log",
           "params": [
             {
-              "name": "offset",
+              "name": "spotifyId",
               "in": "query",
               "required": false,
-              "type": "integer",
-              "default": 0
+              "type": "string"
+            },
+            {
+              "name": "spotifyType",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "track",
+                "album",
+                "artist",
+                "playlist"
+              ]
+            },
+            {
+              "name": "changeType",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "popularity_change",
+                "followers_change",
+                "monthly_listeners_change",
+                "track_count_change",
+                "name_change",
+                "snapshot_change",
+                "initial_snapshot",
+                "playlist_tracks_change",
+                "album_tracks_change",
+                "generic_change"
+              ]
+            },
+            {
+              "name": "since",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 8601 date-time (inclusive)."
+            },
+            {
+              "name": "until",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 8601 date-time (inclusive)."
             },
             {
               "name": "limit",
               "in": "query",
               "required": false,
               "type": "integer",
-              "default": 10
+              "default": 50
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 0
             }
           ],
           "body": null,
@@ -2525,7 +3370,45 @@
               "in": "query",
               "required": true,
               "type": "string",
-              "description": "Comma-separated track IDs"
+              "description": "Comma-separated track IDs (max 50)."
+            },
+            {
+              "name": "include",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated extra data:\n- `insights`: an `insights` object per track: genres, moods, activities and tags with\n  Spotify's weights, `bpm`, `credits` (name, role, artist_id), `has_lyrics`, `languages`\n  (same data as `/track_insights`; about +0.1 s).\n- `playcount`: `playcount` per track, lifetime plays (about +0.3-2 s, cached 1 h).\n- `total_tracks`: fills `album.total_tracks` (about +0.1 s).\n"
+            },
+            {
+              "name": "contrast",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "Comma-separated list of streaming providers to contrast against.\nAppends a `_contrast` field to the response with cross-platform matching data.\nAvailable providers: `ytmusic`, `applemusic`, `amazonmusic`, `tencentmusic`, `pandora`, `gaana`.\n"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/tracks/{id}",
+          "key": "get_tracks_id",
+          "typeName": "GetTracksIdData",
+          "summary": "Get one track",
+          "params": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code. Filters availability and relinks tracks for that market."
             },
             {
               "name": "contrast",
@@ -2550,6 +3433,35 @@
               "in": "query",
               "required": true,
               "type": "string"
+            }
+          ],
+          "body": null,
+          "bodyRequired": false
+        },
+        {
+          "method": "GET",
+          "path": "/track_insights",
+          "key": "get_track_insights",
+          "typeName": "GetTrackInsightsData",
+          "summary": "Track genres, moods, BPM, credits and preview (batch)",
+          "params": [
+            {
+              "name": "ids",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Comma-separated track IDs, spotify:track URIs or open.spotify.com URLs (1-50). `id` is accepted for a single track."
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -2587,6 +3499,17 @@
               "required": false,
               "type": "boolean",
               "default": false
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "false",
+                "0"
+              ],
+              "description": "Set to `false` to skip the cached copy and fetch fresh data (the cache is updated with the result). A URL is refreshed at most once every 10 seconds."
             }
           ],
           "body": null,
@@ -2600,28 +3523,46 @@
           "summary": "Recommendations",
           "params": [
             {
-              "name": "limit",
-              "in": "query",
-              "required": false,
-              "type": "integer"
-            },
-            {
               "name": "seed_tracks",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "description": "Comma-separated track IDs."
             },
             {
               "name": "seed_artists",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "description": "Comma-separated artist IDs."
             },
             {
               "name": "seed_genres",
               "in": "query",
               "required": false,
-              "type": "string"
+              "type": "string",
+              "description": "Comma-separated genre names."
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 20
+            },
+            {
+              "name": "market",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code. Filters availability and relinks tracks for that market."
+            },
+            {
+              "name": "target_energy",
+              "in": "query",
+              "required": false,
+              "type": "number",
+              "description": "Tunable attributes: `min_*`, `max_*` and `target_*` for acousticness, danceability,\nduration_ms, energy, instrumentalness, key, liveness, loudness, mode, popularity,\nspeechiness, tempo, time_signature and valence (e.g. `min_tempo=120`). Only\n`target_energy` is listed here; the others work the same way.\n"
             }
           ],
           "body": null,
@@ -2646,7 +3587,8 @@
               "name": "id",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "description": "Spotify username."
             },
             {
               "name": "playlistLimit",
@@ -2684,7 +3626,8 @@
               "name": "id",
               "in": "query",
               "required": true,
-              "type": "string"
+              "type": "string",
+              "description": "Spotify username."
             }
           ],
           "body": null,
@@ -2717,13 +3660,23 @@
           "params": [],
           "body": [
             {
-              "name": "url",
+              "name": "playlistId",
               "type": "string",
-              "required": false
+              "required": true
+            },
+            {
+              "name": "callbackUrl",
+              "type": "string",
+              "required": true
             },
             {
               "name": "events",
               "type": "string[]",
+              "required": false
+            },
+            {
+              "name": "secret",
+              "type": "string",
               "required": false
             }
           ],
@@ -2785,6 +3738,13 @@
               "in": "path",
               "required": true,
               "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "default": 20
             }
           ],
           "body": null,

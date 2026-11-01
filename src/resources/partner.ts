@@ -20,9 +20,14 @@ export interface PartnerPlaylistParams {
 export interface PartnerTrackParams {
   /** Spotify track ID. */
   id: string;
+  /**
+   * Keep only `{id, uri, profile.name, visuals.avatarImage}` of each artist, dropping the
+   * ~100 KB first-artist discography. The play count is kept.
+   */
+  slim?: boolean;
 }
 
-/** Parameters for {@link PartnerResource.trackCount}. */
+/** Parameters for {@link PartnerResource.trackCount}. For many tracks use `tracks.counts()`. */
 export interface PartnerTrackCountParams {
   /** Spotify track ID. */
   spotify_track_id?: string;
@@ -34,7 +39,7 @@ export interface PartnerTrackCountParams {
 export interface PartnerAlbumParams {
   /** Spotify album ID. */
   id: string;
-  /** Locale, e.g. `intl-es`. */
+  /** Locale of localized fields, e.g. `en` (the default). */
   locale?: string;
   offset?: number;
   limit?: number;
@@ -48,6 +53,8 @@ export interface PartnerArtistOverviewParams {
   locale?: string;
   /** Include prerelease content. */
   includePrerelease?: boolean;
+  /** Drop the heavy music-video, merch and visual-identity blocks (stats and top tracks are kept). */
+  slim?: boolean;
 }
 
 /** Parameters for {@link PartnerResource.artistDiscography}. */
@@ -71,7 +78,7 @@ export class PartnerResource extends Resource {
 
   /** Get partner track data. */
   track(params: PartnerTrackParams, options?: RequestOverrides): Promise<GetPartnerTrackData> {
-    return this.client.get<GetPartnerTrackData>('/partner/track', { id: params.id }, options);
+    return this.client.get<GetPartnerTrackData>('/partner/track', { id: params.id, slim: params.slim }, options);
   }
 
   /** Get a track's play count by Spotify ID or ISRC. */
@@ -99,7 +106,7 @@ export class PartnerResource extends Resource {
   ): Promise<GetPartnerArtistOverviewData> {
     return this.client.get<GetPartnerArtistOverviewData>(
       '/partner/artist-overview',
-      { id: params.id, locale: params.locale, includePrerelease: params.includePrerelease },
+      { id: params.id, locale: params.locale, includePrerelease: params.includePrerelease, slim: params.slim },
       options,
     );
   }

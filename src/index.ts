@@ -2,14 +2,17 @@
 export { SpotifyApiClient, createClient } from './client';
 export { SpotifyHttpClient } from './core';
 export { SpotifyApiError } from './errors';
-export type { SpotifyApiErrorInit } from './errors';
+export type { SpotifyApiErrorInit, SpotifyApiErrorCode } from './errors';
 export {
   PROVIDERS,
   resolveConfig,
+  SDK_VERSION,
   DEFAULT_USER_AGENT,
   DEFAULT_TIMEOUT_MS,
   DEFAULT_RETRIES,
   DEFAULT_RETRY_DELAY_MS,
+  DEFAULT_MAX_RETRY_DELAY_MS,
+  DEFAULT_GATEWAY_TIMEOUT_RETRIES,
 } from './config';
 export type { ResolvedConfig } from './config';
 export { buildPath } from './resources/base';
@@ -39,10 +42,8 @@ export * from './resources/artists';
 export * from './resources/audiobooks';
 export * from './resources/batch';
 export * from './resources/browse';
-export * from './resources/cache';
 export * from './resources/charts';
 export * from './resources/concerts';
-export * from './resources/credentials';
 export * from './resources/downloads';
 export * from './resources/episodes';
 export * from './resources/health';

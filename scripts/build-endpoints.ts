@@ -31,6 +31,8 @@ interface RawOp {
   tags?: string[];
   parameters?: RawParam[];
   requestBody?: { required?: boolean; content?: Record<string, { schema?: RawSchema }> };
+  /** Operator-only endpoint: documented for operators, never part of the SDK surface. */
+  'x-internal'?: boolean;
 }
 
 export interface ParamDef {
@@ -109,6 +111,9 @@ const groups = new Map<string, TagGroup>();
 for (const [path, methods] of Object.entries(spec.paths)) {
   for (const [method, def] of Object.entries(methods)) {
     if (!HTTP_METHODS.includes(method)) continue;
+    // Admin/ops endpoints are marked x-internal in the spec; they must never become
+    // SDK namespaces (they need an operator key and were removed from the SDK in 2.0.0).
+    if (def['x-internal']) continue;
     const tag = def.tags?.[0] ?? 'General';
     const key = keyFor(method, path);
 

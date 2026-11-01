@@ -1508,7 +1508,8 @@ export interface GetHealthClusterDataInstance {
   uptime: number;
   lastHeartbeat: Date;
   metrics: Metrics;
-  lastRequests: LastRequest[];
+  /** Operator (MONITOR_KEY) responses only; RapidAPI and direct-API callers never get the per-request records. */
+  lastRequests?: LastRequest[];
   status: Status;
   isClusterMode: boolean;
 }
@@ -1555,9 +1556,17 @@ export interface LastRequestsTracking {
 export interface LastRequestsTrackingInstance {
   instanceId: string;
   healthy: boolean;
-  lastRequests: Request[];
-  failedRequests: Request[];
-  lastUpdateTimestamp: number;
+  /** Set when the instance stopped reporting; `staleReason` says for how long. */
+  isStale?: boolean;
+  staleReason?: string;
+  /** Failed requests among the instance's last 5 (the records themselves are operator-only). */
+  failedRequestsCount: number;
+  /** Operator (MONITOR_KEY) responses only. */
+  lastRequests?: Request[];
+  /** Operator (MONITOR_KEY) responses only. */
+  failedRequests?: Request[];
+  /** Operator (MONITOR_KEY) responses only. */
+  lastUpdateTimestamp?: number;
 }
 
 export interface Request {
@@ -1590,7 +1599,8 @@ export interface GetHealthInstanceData {
   averageResponseTime: number;
   statusCodeDistribution: StatusCodeDistribution;
   endpoints: { [key: string]: Endpoint };
-  lastRequests: LastRequest[];
+  /** Operator (MONITOR_KEY) responses only; RapidAPI and direct-API callers never get the per-request records. */
+  lastRequests?: LastRequest[];
 }
 
 export interface Endpoint {
@@ -2392,7 +2402,6 @@ export interface Snapshot {
   totalTracks: number;
   tracks: SnapshotTrack[];
   imageUrl: string;
-  capturedBy: string;
   diff: Diff | null;
   capturedAt: SearchTests;
   __v: number;

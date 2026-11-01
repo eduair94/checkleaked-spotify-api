@@ -9,10 +9,11 @@ import type {
 
 /** Parameters for {@link BrowseResource.categories}. */
 export interface BrowseCategoriesParams {
-  /** ISO country code (e.g. `US`). */
+  /** @deprecated Ignored by `/browse/categories`. */
   country?: string;
   /** Locale (e.g. `en_US`). */
   locale?: string;
+  /** Default 20. */
   limit?: number;
   offset?: number;
 }
@@ -25,22 +26,34 @@ export interface BrowseCategoryParams {
   country?: string;
   /** Locale (e.g. `en_US`). */
   locale?: string;
+  /** Sections per page (1–50, default 10). */
+  section_limit?: number;
+  /** Section offset (default 0). */
+  section_offset?: number;
+  /** Items per section (1–50, default 10). */
+  item_limit?: number;
+  /** Item offset within each section (default 0). */
+  item_offset?: number;
 }
 
 /** Parameters for {@link BrowseResource.featuredPlaylists}. */
 export interface BrowseFeaturedPlaylistsParams {
-  /** ISO country code (e.g. `US`). */
+  /** @deprecated Ignored by `/browse/featured-playlists`. */
   country?: string;
   /** Locale (e.g. `en_US`). */
   locale?: string;
+  /** ISO 8601 local time used to pick time-of-day playlists. */
+  timestamp?: string;
+  /** Default 20. */
   limit?: number;
   offset?: number;
 }
 
 /** Parameters for {@link BrowseResource.newReleases}. */
 export interface BrowseNewReleasesParams {
-  /** ISO country code (e.g. `US`). */
+  /** ISO country code (e.g. `US`, the default). */
   country?: string;
+  /** Default 20. */
   limit?: number;
   offset?: number;
 }
@@ -53,7 +66,10 @@ export interface BrowseRecommendationsParams {
   seed_artists?: string | readonly string[];
   /** Comma-separated seed genres. */
   seed_genres?: string;
+  /** Number of tracks (1–100, default 20). */
   limit?: number;
+  /** ISO 3166-1 alpha-2 market code, e.g. `US`. */
+  market?: string;
 }
 
 /** Browse endpoints. */
@@ -77,7 +93,14 @@ export class BrowseResource extends Resource {
     const path = buildPath('/browse/categories/{id}', { id: params.id });
     return this.client.get<GetBrowseCategoriesIdData>(
       path,
-      { country: params.country, locale: params.locale },
+      {
+        country: params.country,
+        locale: params.locale,
+        section_limit: params.section_limit,
+        section_offset: params.section_offset,
+        item_limit: params.item_limit,
+        item_offset: params.item_offset,
+      },
       options,
     );
   }
@@ -92,6 +115,7 @@ export class BrowseResource extends Resource {
       {
         country: params?.country,
         locale: params?.locale,
+        timestamp: params?.timestamp,
         limit: params?.limit,
         offset: params?.offset,
       },
@@ -99,7 +123,7 @@ export class BrowseResource extends Resource {
     );
   }
 
-  /** Get new album releases. */
+  /** Get new album releases for a country. A `stale: true` flag marks an outdated upstream list. */
   newReleases(params?: BrowseNewReleasesParams, options?: RequestOverrides): Promise<GetBrowseNewReleasesData> {
     return this.client.get<GetBrowseNewReleasesData>(
       '/browse/new-releases',
@@ -120,6 +144,7 @@ export class BrowseResource extends Resource {
         seed_artists: params?.seed_artists,
         seed_genres: params?.seed_genres,
         limit: params?.limit,
+        market: params?.market,
       },
       options,
     );
